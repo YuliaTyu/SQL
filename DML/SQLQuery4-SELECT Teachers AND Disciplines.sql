@@ -8,8 +8,10 @@ SELECT
 FROM	 Teachers, Disciplines, TeachersDisciplinesRelation
 WHERE	 teacher			=	teacher_id
 AND		 discipline			=   discipline_id
---AND		 last_name		=	N'Покидюк'
-AND		 discipline_name    LIKE N'Системное%'
+--AND		 last_name		=	N'Покидюк'--поиск по преподу
+--AND		 discipline_name    LIKE N'Системное%'--поиск по дисциплине
+ORDER BY	discipline_name--препод/дисциплина
+
 ;
 
---SELECT * FROM TeachersDisciplinesRelation;
+

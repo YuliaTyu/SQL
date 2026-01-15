@@ -1,33 +1,33 @@
---SQLQuery2-SELECT Students
+п»ї--SQLQuery2-SELECT Students
 
 USE SPU_411_Import;
 
 SELECT
-		last_name		AS		N'Фамилия',
-		first_name	AS		N'Имя',
-		middle_name	AS		N'Отчество',
-		FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name) AS N'Студент',
+		last_name		AS		N'Р¤Р°РјРёР»РёСЏ',
+		first_name	AS		N'РРјСЏ',
+		middle_name	AS		N'РћС‚С‡РµСЃС‚РІРѕ',
+		FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name) AS N'РЎС‚СѓРґРµРЅС‚',
 
-		birth_date		AS		N'Дата рожденеия',
+		birth_date		AS		N'Р”Р°С‚Р° СЂРѕР¶РґРµРЅРµРёСЏ',
 		
-		CAST(DATEDIFF(DAY, birth_date, GETDATE())/365.25 AS INT),--расчет и вывод возраста в базе:
+		CAST(DATEDIFF(DAY, birth_date, GETDATE())/365.25 AS INT),--СЂР°СЃС‡РµС‚ Рё РІС‹РІРѕРґ РІРѕР·СЂР°СЃС‚Р° РІ Р±Р°Р·Рµ:
 		
-		group_name		AS		N'Группа',
-		direction_name	AS		N'Направленеи обучения'
+		group_name		AS		N'Р“СЂСѓРїРїР°',
+		direction_name	AS		N'РќР°РїСЂР°РІР»РµРЅРµРё РѕР±СѓС‡РµРЅРёСЏ'
 FROM	Students, Groups, Directions
-WHERE [group]		=	group_id     --связываем таблицы
+WHERE [group]		=	group_id     --СЃРІСЏР·С‹РІР°РµРј С‚Р°Р±Р»РёС†С‹
 AND direction		=	direction_id 
-AND direction_name LIKE N'Разработка%' --отбор по тексту в поле
+AND direction_name LIKE N'Р Р°Р·СЂР°Р±РѕС‚РєР°%' --РѕС‚Р±РѕСЂ РїРѕ С‚РµРєСЃС‚Сѓ РІ РїРѕР»Рµ
 
 
-ORDER BY	last_name	ASC --сортировка по возрастанию:
---ORDER BY	last_name	DESC --сортировка по убыванию:
+ORDER BY	last_name	ASC --СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ:
+--ORDER BY	last_name	DESC --СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СѓР±С‹РІР°РЅРёСЋ:
 ;
 
 SELECT
-		[Преподаватель]	=	FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name ),
-		[Дата рождения] = birth_date,
-		[Возраст]		= CAST(DATEDIFF(DAY, birth_date, GETDATE())/365.25 AS INT) 
+		[РџСЂРµРїРѕРґР°РІР°С‚РµР»СЊ]	=	FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name ),
+		[Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ] = birth_date,
+		[Р’РѕР·СЂР°СЃС‚]		= CAST(DATEDIFF(DAY, birth_date, GETDATE())/365.25 AS INT) 
 FROM Teachers
 ;
 

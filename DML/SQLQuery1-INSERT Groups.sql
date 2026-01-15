@@ -1,7 +1,7 @@
---SQLQuery1-INSERT Groups
+п»ї--SQLQuery1-INSERT Groups
 USE SPU_411_DDL;
 
---INSERT Groups                         -- заполнение базы данных
+--INSERT Groups                         -- Р·Р°РїРѕР»РЅРµРЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 --            (group_id, group_name, direction)
 --VALUES
 --            (1, N'PU_211', 1),
@@ -15,11 +15,11 @@ USE SPU_411_DDL;
 --            ;
 
 
-SELECT                                 -- тоже заполнение базы данных
+SELECT                                 -- С‚РѕР¶Рµ Р·Р°РїРѕР»РЅРµРЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 		group_id			AS N'ID',
-		group_name			AS N'Название группы',
-		direction_name		AS N'направление обучения'
+		group_name			AS N'РќР°Р·РІР°РЅРёРµ РіСЂСѓРїРїС‹',
+		direction_name		AS N'РЅР°РїСЂР°РІР»РµРЅРёРµ РѕР±СѓС‡РµРЅРёСЏ'
 
 FROM	Groups, Directions
-WHERE	direction = direction_id;		-- условие для корректного связывания таблиц!!
+WHERE	direction = direction_id;		-- СѓСЃР»РѕРІРёРµ РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ СЃРІСЏР·С‹РІР°РЅРёСЏ С‚Р°Р±Р»РёС†!!
 
