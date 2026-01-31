@@ -1,6 +1,8 @@
 ﻿--SQLQuery0-CHECK PROCEDURE.sql
 USE SPU_411_Import;
 
---EXEC sp_SelectScheduleFull;
+SET LANGUAGE N'Russian';
 
-EXEC sp_SelectSchedule N'SPU_411', N'Процедурное%';
+EXEC sp_SelectScheduleFull;
+
+--EXEC sp_SelectSchedule N'SPU_411', N'Процедурное%';

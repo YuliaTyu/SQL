@@ -1,4 +1,4 @@
---SQLQuery2-SELECT ScheduleForGroup
+п»ї--SQLQuery2-SELECT ScheduleForGroup
 USE SPU_411_Import;
 GO
 ALTER PROCEDURE sp_SelectSchedule
@@ -7,17 +7,22 @@ ALTER PROCEDURE sp_SelectSchedule
 AS
 
 BEGIN
+
+DECLARE @group_id		AS INT		=	(SELECT group_id FROM Groups WHERE group_name=@group_name);
+DECLARE @discipline_id	AS SMALLINT =	(SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE @discipline_name)
 	SELECT
-		[Группа]		=		group_name,
-		[Дата]			=		[date],	
-		[Время]			=		[time],
-		[Дисциплина]	=		discipline_name,
-		[Преподаватель] =		FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name),
-		[Статус] = IIF(spent = 1, N'Проведено', N'Запланировано')		
+		[Р“СЂСѓРїРїР°]		=		group_name,
+		[Р’СЂРµРјСЏ]			=		[time],
+		[Р”Р°С‚Р°]			=		[date],	
+		[Р”РµРЅСЊ РЅРµРґРµР»Рё]	=		DATENAME(WEEKDAY, [date]),
+		[Р”РёСЃС†РёРїР»РёРЅР°]	=		discipline_name,
+		[РџСЂРµРїРѕРґР°РІР°С‚РµР»СЊ] =		FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name),
+		[РЎС‚Р°С‚СѓСЃ] = IIF(spent = 1, N'РџСЂРѕРІРµРґРµРЅРѕ', N'Р—Р°РїР»Р°РЅРёСЂРѕРІР°РЅРѕ')		
 		FROM Schedule
 		JOIN Groups			ON [group]	= group_id
 		JOIN Disciplines	ON discipline = discipline_id
 		JOIN Teachers		ON teacher  = teacher_id
-		WHERE group_name = @group_name
-		AND discipline_name   LIKE @discipline_name
+		WHERE group_id		= @group_id
+		AND discipline_id   = @discipline_id
+		ORDER BY [date]
 END
