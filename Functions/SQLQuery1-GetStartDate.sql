@@ -13,3 +13,4 @@ BEGIN
 	SET @start_date = dbo.GetNextDate(dbo.Get.LastDate(@group_name));
 	RETURN @start_date;
 END
+

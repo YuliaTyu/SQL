@@ -63,6 +63,12 @@
           <AssociatedConnUserName />
           <FullPath>SQLQuery2-SELECT ScheduleForGroup.sql</FullPath>
         </FileNode>
+        <FileNode Name="SQLQuery3-INSERT sp_InsertLesson PROC.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-LDN2BMM\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-LDN2BMM\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery3-INSERT sp_InsertLesson PROC.sql</FullPath>
+        </FileNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">

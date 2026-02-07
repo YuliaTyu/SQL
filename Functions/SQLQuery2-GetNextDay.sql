@@ -1,4 +1,4 @@
-﻿--SQLQuery1-GetNextDay.sql
+﻿--SQLQuery2-GetNextDay.sql функция возвращает предыдущий день
 SET DATEFIRST 1; --1-Пн., 2-Вт.......
 USE SPU_411_Import;
 GO
