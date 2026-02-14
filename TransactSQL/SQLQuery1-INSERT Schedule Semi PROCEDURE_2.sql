@@ -24,7 +24,7 @@ BEGIN
 	PRINT '--------------------------------------------------------------------';
 		PRINT @group_id;
 		PRINT @discipline_id;
-		PRINT @teacher_id;
+		PRINT @teacher;
 		PRINT @date;
 		PRINT @time;
 		PRINT @lesson_number;
@@ -32,7 +32,7 @@ BEGIN
 
 	WHILE @lesson_number <= @number_of_lessons
 	BEGIN
-		SET @date = dbo.GetNextDate(@group_name);
+		IF dbo.GetLastDate(@group_name) IS NOT NULL SET @date = dbo.GetNextDate(@group_name);
 		SET @time = @start_time;
 		EXEC sp_InsertLesson @group_id, @discipline_id, @teacher_id, @date, @time OUTPUT, @lesson_number OUTPUT;
 		--SET @time = DATEADD(MINUTE,  95,@time);
