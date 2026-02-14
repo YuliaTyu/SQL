@@ -1,5 +1,5 @@
 --проверка функции
-SET DATEFIRST 1;
+SET DATEFIRST 1;--
 USE SPU_411_Import;
 
 --PRINT(dbo.GetLastDate(N'SPU_411'));
@@ -10,5 +10,9 @@ USE SPU_411_Import;
 --SELECT * FROM Schedule WHERE [group]=3;
 
 
-EXEC sp_SelectScheduleFull;
-PRINT (dbo.GetNextDate(N'PV_211'));
+--EXEC sp_SelectScheduleFull;
+--PRINT (dbo.GetNextDate(N'PV_211'));
+
+--PRINT (dbo.GetNewYear(2018));
+--PRINT (dbo.GetSummertimeSadness(2026));
+PRINT (dbo.GetEasterDate(2022));
