@@ -15,4 +15,5 @@ USE SPU_411_Import;
 
 --PRINT (dbo.GetNewYear(2018));
 --PRINT (dbo.GetSummertimeSadness(2026));
-PRINT (dbo.GetEasterDate(2022));
+--PRINT (dbo.GetEasterDate(2022));
+PRINT (dbo.GetHolidaysStartDate(N'Нов%',2026));
